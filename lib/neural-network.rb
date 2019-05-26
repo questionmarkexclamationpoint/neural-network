@@ -74,14 +74,14 @@ class NeuralNetwork
   end
 
   def [](name)
-    return @neurons[name] if name.is_a?(i)
-    raise KeyError("No such neuron name #{name}") unless @names.has_key?(name)
+    return @neurons[name] if name.is_a?(Integer)
+    raise KeyError("No such neuron named #{name}") unless @names.has_key?(name)
     indices = @names[name]
     @neurons[indices.first][indices.last]
   end
 
   def []=(name, value)
-    raise KeyError("No such neuron name #{name}") unless @names.has_key?(name)
+    raise KeyError("No such neuron named #{name}") unless @names.has_key?(name)
     indices = @names[name]
     @neurons[indices.first][indices.last] = value
   end
